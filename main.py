@@ -1,6 +1,29 @@
+"""
+Filename:
+    main.py
+
+Function:
+    Analyzies video files to detect flashing footage and issue an automatic warning if flashing footage is detected
+
+Important notes:
+    Code should be formatted by black and checked for flashes by pylint
+"""
+
 import cv2
 import numpy
+import sys
 
+# Takes as input (from command line) a video file to scan
+
+if len(sys.argv) < 2:
+    print("Example usage: python main.py 'yourfile.mp4'")
+    print("You forgot to enter arguments!")
+    sys.exit()
+else:
+    source = sys.argv[1]
+    print("You chose the video file", source)
+
+# Primary video analyzing function
 
 def analyzeData(videofile):
     vidcap = cv2.VideoCapture(videofile)
@@ -37,5 +60,6 @@ def analyzeData(videofile):
 
         success, image = vidcap.read()
 
-
-analyzeData("tests/tests.mp4")
+if __name__ == "__main__":
+    print("Beginnning analysis...")
+    analyzeData(source)
