@@ -1,0 +1,17 @@
+# List of files to be ignored by Git
+# ==================================
+
+*.DS_Store
+
+# Byte-compiled files and cache
+
+*__pycache__/
+build
+.Python
+
+# Artifacts
+
+.env
+.tmp
+.temp
+.swp
