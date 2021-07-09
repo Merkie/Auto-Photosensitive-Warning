@@ -25,10 +25,13 @@ else:
 
 # Prettified table printing function
 
-def tableOutput(time: int, 
-                num_points: int, 
-                print_table_title: bool = True, 
-                title: list = ["Time(seconds)", "Number of points"]):
+
+def tableOutput(
+    time: int,
+    num_points: int,
+    print_table_title: bool = True,
+    title: list = ["Time(seconds)", "Number of points"],
+):
     """
     Usage:
         tableOutput(arg1, arg2, arg3, arg4)
@@ -50,7 +53,9 @@ def tableOutput(time: int,
     num_points = str(num_points) + " points"
     print("{:<20} {:<30}".format(time, num_points))
 
+
 # Primary video analyzing function
+
 
 def analyzeData(videofile: str, headlessMode: bool = False):
     vidcap = cv2.VideoCapture(videofile)
@@ -97,8 +102,11 @@ def analyzeData(videofile: str, headlessMode: bool = False):
     # Return average number of flashes per second
     return avgAvg
 
+
 if __name__ == "__main__":
     print("Beginnning analysis...\n")
     analyzeData(source)
-    if analyzeData(source, headlessMode = True) > 3:
-        print("\n[WARN]: Footage contains flashes and is not suitable for photosensitive individuals")
+    if analyzeData(source, headlessMode=True) > 3:
+        print(
+            "\n[WARN]: Footage contains flashes and is not suitable for photosensitive individuals"
+        )
